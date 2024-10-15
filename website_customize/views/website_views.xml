@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- themes should be installed through website settings -->
+    <record id="base.open_module_tree" model="ir.actions.act_window">
+        <field name="domain">['!', ('name', '=like', 'theme_%'), '|', ('author', '!=', 'Odoo S.A.'), ('to_buy', '=', False)]</field>
+    </record>
+</odoo>

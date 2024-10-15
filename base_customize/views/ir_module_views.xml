@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="base.open_module_tree" model="ir.actions.act_window">
+        <field name="domain">['|', ('author', '!=', 'Odoo S.A.'), ('to_buy', '=', False)]</field>
+    </record>
+</odoo>

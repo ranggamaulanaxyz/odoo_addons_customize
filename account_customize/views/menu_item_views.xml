@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem name="Accounting"
+        id="account.menu_finance"
+        groups="account.group_account_readonly,account.group_account_invoice"
+        web_icon="account_customize,static/description/icon.png"
+        sequence="55"/>
+</odoo>
