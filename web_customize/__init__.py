@@ -25,7 +25,7 @@ JavascriptAsset.content = content
 
 
 def url_init(self, httprequest):
-    if httprequest.path.startswith("/odoo/"):
+    if httprequest.path.startswith("/odoo"):
         httprequest.path = httprequest.path.replace("odoo", models.ir_http.base_sorturl[0], 1)
     self.httprequest = httprequest
     self.future_response = http.FutureResponse()
