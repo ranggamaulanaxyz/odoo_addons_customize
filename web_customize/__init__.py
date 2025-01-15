@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from . import models
-
-
 from odoo.addons.base.models.assetsbundle import JavascriptAsset
 from odoo.tools import transpile_javascript
 import re
@@ -27,8 +25,8 @@ JavascriptAsset.content = content
 
 
 def url_init(self, httprequest):
-    if "odoo" in httprequest.path:
-        httprequest.path = httprequest.path.replace("odoo", models.ir_http.base_sorturl[0])
+    if httprequest.path.startswith("/odoo/"):
+        httprequest.path = httprequest.path.replace("odoo", models.ir_http.base_sorturl[0], 1)
     self.httprequest = httprequest
     self.future_response = http.FutureResponse()
     self.dispatcher = http._dispatchers['http'](self)
