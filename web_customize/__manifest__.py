@@ -22,6 +22,7 @@ This module provides the customize core of the Odoo Web Client.
             ("prepend", "web_customize/static/src/scss/primary_variables.scss"),
         ],
         "web.assets_backend": [
+            "web_customize/static/src/views/form/form.variables.scss",
             "web_customize/static/src/webclient/user_menu/user_menu_items.js",
             "web_customize/static/src/views/form/reload_form_controller.js",
         ],

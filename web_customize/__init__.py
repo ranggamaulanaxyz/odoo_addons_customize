@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import models, controllers
 from odoo.addons.base.models.assetsbundle import JavascriptAsset
 from odoo.tools import transpile_javascript
 import re
