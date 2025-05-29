@@ -1,0 +1,20 @@
+.o_main_navbar {
+    align-items: center;
+    .o_menu_sections {
+        height: min-content;
+    }
+
+    .o_menu_systray {
+        align-items: center;
+    }
+    
+    .o_debug_manager {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: flex !important;
+    }
+
+    .o-mail-DiscussSystray-class {
+        border-radius: 15px;
+    }
+}

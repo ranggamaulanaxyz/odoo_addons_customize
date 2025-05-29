@@ -3,7 +3,7 @@
 
 {
     'name': 'Website (RMXYZ)',
-    'category': 'Hidden/Customize',
+    'category': 'Customization/Website',
     'sequence': 20,
     'summary': 'Website customize',
     'version': '1.0',
@@ -12,6 +12,7 @@
     'installable': True,
     'data': [
         'views/webclient_templates.xml',
+        'views/website_views.xml',
     ],
     'license': 'LGPL-3',
 }

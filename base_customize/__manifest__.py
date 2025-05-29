@@ -10,7 +10,7 @@ This module is for customizing the odoo community
 =================================================
 Customization default odoo base
     """,
-    'category': 'Hidden/Customize',
+    'category': 'Customization/Base',
     'website': 'https://www.ranggamaulana.xyz',
     'depends': ['base_setup', 'base'],
     'data': [

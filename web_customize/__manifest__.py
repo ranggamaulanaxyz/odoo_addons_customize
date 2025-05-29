@@ -3,7 +3,7 @@
 
 {
     "name": "Web (RMXYZ)",
-    "category": "Hidden/Customize",
+    "category": "Customization/Base",
     "version": "1.0",
     "author": "Rangga Maulana",
     "description": """
@@ -22,6 +22,9 @@ This module provides the customize core of the Odoo Web Client.
             ("prepend", "web_customize/static/src/scss/primary_variables.scss"),
         ],
         "web.assets_backend": [
+            ("replace", "web/static/src/webclient/navbar/navbar.variables.scss", "web_customize/static/src/webclient/navbar/navbar.variables.scss"),
+            "web_customize/static/src/webclient/navbar/navbar.scss",
+            "web_customize/static/src/webclient/navbar/navbar.xml",
             "web_customize/static/src/views/form/form.variables.scss",
             "web_customize/static/src/webclient/user_menu/user_menu_items.js",
             "web_customize/static/src/views/form/reload_form_controller.js",

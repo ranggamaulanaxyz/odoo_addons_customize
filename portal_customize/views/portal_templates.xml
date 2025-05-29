@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="user_dropdown" inherit_id="portal.user_dropdown" name="Portal User Dropdown Customize">
+        <xpath expr="//a[@id='o_backend_user_dropdown_link']" position="attributes">
+            <attribute name="href">/app</attribute>
+        </xpath>
+    </template>
+
+    <template id="portal.side_content">
+        <div t-if="isOffcanvas" class="offcanvas-header justify-content-end">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close" />
+        </div>
+        <div t-attf-class="{{'offcanvas-body' if isOffcanvas else 'mt-3 mw-100'}}">
+            <div class="d-flex justify-content-start align-items-start gap-3 py-2 mb-2 border-bottom">
+                <img class="o_portal_contact_img rounded o_object_fit_cover"
+                    t-att-src="image_data_uri(user_id.partner_id.avatar_128)" alt="Contact"
+                    width="50" />
+                <div class="d-flex flex-column justify-content-center">
+                    <h5 class="mb-0" t-out="user_id.name" />
+                    <p class="mb-0 text-muted" t-out="user_id.company_name" />
+                </div>
+            </div>
+            <div class="o_portal_my_details">
+                <div class="mb-1">
+                    <label class="form-label fw-bold mb-1">Email</label>
+                    <p class="p-0" t-out="user_id.email" />
+                </div>
+                <div class="mb-1">
+                    <label class="form-label fw-bold mb-1">Phone</label>
+                    <p class="p-0" t-out="user_id.phone" />
+                </div>
+                <div class="mb-1">
+                    <label class="form-label fw-bold mb-1">Address</label>
+                    <p class="p-0" t-out="user_id.partner_id.contact_address" />
+                </div>
+            </div>
+            <a role="button" href="/my/account" class="btn btn-primary mt-3"><i
+                    class="fa fa-pencil" /> Edit information</a>
+            <div name="portal_contact" class="o_my_contact mt-5" t-if="sales_user">
+                <t t-call="portal.portal_contact" />
+            </div>
+        </div>
+    </template>
+</odoo>
