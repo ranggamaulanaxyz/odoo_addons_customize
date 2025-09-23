@@ -8,7 +8,7 @@
     "author": "Rangga Maulana",
     "description": """
 Odoo Customize Web core module.
-========================
+================================
 
 This module provides the customize core of the Odoo Web Client.
 """,
@@ -26,8 +26,10 @@ This module provides the customize core of the Odoo Web Client.
             "web_customize/static/src/webclient/navbar/navbar.scss",
             "web_customize/static/src/webclient/navbar/navbar.xml",
             "web_customize/static/src/views/form/form.variables.scss",
+            "web_customize/static/src/webclient/user_menu/user_menu.xml",
             "web_customize/static/src/webclient/user_menu/user_menu_items.js",
             "web_customize/static/src/views/form/reload_form_controller.js",
+            "web_customize/static/src/webclient/switch_company_menu/switch_company_menu.xml",
         ],
     },
     "license": "LGPL-3",

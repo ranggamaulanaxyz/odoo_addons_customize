@@ -5,7 +5,13 @@
     }
 
     .o_menu_systray {
-        align-items: center;
+        align-items: stretch;
+        height: 100%;
+        .o_menu_systray_item {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
     }
     
     .o_debug_manager {

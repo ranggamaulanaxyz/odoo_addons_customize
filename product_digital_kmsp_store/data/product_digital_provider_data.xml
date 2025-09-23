@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_digital_provider_kmsp_store" model="product.digital.provider">
+            <field name="name">KMSP Store</field>
+            <field name="type">kmsp_store</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

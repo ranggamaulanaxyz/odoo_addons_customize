@@ -2,7 +2,7 @@
 
 from . import models, controllers
 from odoo.addons.base.models.assetsbundle import JavascriptAsset
-from odoo.tools import transpile_javascript
+from odoo.tools.js_transpiler import transpile_javascript
 import re
 from odoo import http
 
@@ -16,6 +16,7 @@ def content(self):
         content = re.sub(r'(?<!@)odoo', models.ir_http.base_sorturl[0], content)
     if self.is_transpiled:
         if not self._converted_content:
+            from odoo.tools.js_transpiler import transpile_javascript
             self._converted_content = transpile_javascript(self.url, content)
         return self._converted_content
     return content

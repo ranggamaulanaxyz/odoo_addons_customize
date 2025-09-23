@@ -10,6 +10,7 @@ from odoo.http import ROUTING_KEYS
 from odoo.tools.misc import submap
 from odoo.modules.registry import Registry
 from odoo import models, tools
+from odoo.tools import config
 from odoo.addons.base.models.ir_http import _logger, FasterRule
 
 base_sorturl = ['']
@@ -23,8 +24,7 @@ class IrHttp(models.AbstractModel):
         base_sorturl[0] = config_parameter.sudo().get_param("web.base.sorturl", "")
         _logger.info("Generating routing map for key %s", str(key))
         registry = Registry(threading.current_thread().dbname)
-        installed = registry._init_modules.union(
-            odoo.conf.server_wide_modules)
+        installed = registry._init_modules.union(config['server_wide_modules'])
         mods = sorted(installed)
         routing_map = werkzeug.routing.Map(
             strict_slashes=False, converters=self._get_converters())
