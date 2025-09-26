@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="menu_product_digital" name="Digital Products" sequence="20" parent="sale.menu_sale_config">
+        <menuitem id="menu_product_digital_providers" name="Product Digital Providers" action="product_digital.action_product_digital_provider" sequence="10"/>
+    </menuitem>
+</odoo>

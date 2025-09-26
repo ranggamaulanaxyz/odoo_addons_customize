@@ -15,7 +15,6 @@ Customization default odoo base
     'depends': ['base_setup', 'base'],
     'data': [
         'views/ir_module_views.xml',
-        'views/res_config_settings_views.xml',
     ],
     'demo': [],
     'installable': True,
