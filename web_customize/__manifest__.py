@@ -14,7 +14,7 @@ This module provides the customize core of the Odoo Web Client.
 """,
     "depends": ["base_customize", "web"],
     "auto_install": True,
-    "data": ["data/ir_config_parameter_data.xml", "views/ir_config_parameter_views.xml"],
+    "data": ["data/ir_config_parameter_data.xml", "views/ir_config_parameter_views.xml", "views/webclient_templates.xml"],
     "bootstrap": True,  # load translations for login screen,
     "assets": {
         "web._assets_primary_variables": [
