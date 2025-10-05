@@ -2,5 +2,7 @@
 <odoo>
     <menuitem id="menu_product_digital" name="Digital Products" sequence="20" parent="sale.menu_sale_config">
         <menuitem id="menu_product_digital_providers" name="Product Digital Providers" action="product_digital.action_product_digital_provider" sequence="10"/>
+        <menuitem id="action_product_digital_token" name="Product Digital Tokens" action="product_digital.action_product_digital_token" sequence="15"/>
+        <menuitem id="action_product_digital_transaction" name="Product Digital Transactions" action="product_digital.action_product_digital_token" sequence="15"/>
     </menuitem>
 </odoo>

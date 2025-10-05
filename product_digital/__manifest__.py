@@ -20,6 +20,8 @@ This module provides the digital product feature.
         'security/ir.model.access.csv',
         'views/product_views.xml',
         'views/product_digital_provider_views.xml',
+        'views/product_digital_token_views.xml',
+        'views/product_digital_transaction_views.xml',
     ],
     'author': 'Rangga Maulana',
     'license': 'Other proprietary',

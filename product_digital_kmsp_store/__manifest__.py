@@ -18,6 +18,7 @@ This module provides the digital product feature.
     'application': False,
     'data': [
         'data/product_digital_provider_data.xml',
+        'views/product_digital_provider_views.xml'
     ],
     'author': 'Rangga Maulana',
     'license': 'Other proprietary',

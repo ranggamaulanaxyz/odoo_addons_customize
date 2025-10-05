@@ -24,9 +24,16 @@
                         <h1><field name="name"/></h1>
                     </div>
                     <group>
-                        <field name="type"/>
-                        <field name="active"/>
+                        <group>
+                            <field name="id" invisible="True"/>
+                            <field name="type" invisible="id != False"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Credentials" name="credentials" />
+                        <page string="Configuration" />
+                    </notebook>
                 </sheet>
             </form>
         </field>

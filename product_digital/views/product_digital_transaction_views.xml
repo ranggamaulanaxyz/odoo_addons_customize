@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_product_digital_transaction_form" model="ir.ui.view">
+        <field name="name">view.product.digital.transaction.form</field>
+        <field name="model">product.digital.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="provider_id" />
+                        </group>
+                        <group>
+                            <field name="product_id" domain="[('product_digital_provider_id', '=', provider_id)]"/>
+                            <field name="access_token_id" domain="[('provider_id', '=', provider_id)]"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_digital_transaction_list" model="ir.ui.view">
+        <field name="name">view.product.digital.transaction.list</field>
+        <field name="model">product.digital.transaction</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="partner_id" />
+                <field name="provider_id" />
+                <field name="product_id" />
+                <field name="state" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_product_digital_transaction" model="ir.actions.act_window">
+        <field name="name">Product Digital Transaction</field>
+        <field name="res_model">product.digital.transaction</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new digital product transaction.
+            </p>
+        </field>
+    </record>
+</odoo>

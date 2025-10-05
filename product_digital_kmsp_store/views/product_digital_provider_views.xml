@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_product_digital_provider_form_inherit" model="ir.ui.view">
+        <field name="name">product.digital.provider.form.inherit</field>
+        <field name="model">product.digital.provider</field>
+        <field name="inherit_id" ref="product_digital.view_product_digital_provider_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='credentials']" position="inside">
+                <group invisible="type != 'kmsp_store'">
+                    <group>
+                        <field name="kms_store_api_key" required="type == 'kmsp_store'" string="Api Key" />
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

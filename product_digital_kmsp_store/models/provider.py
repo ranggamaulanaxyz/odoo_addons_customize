@@ -5,13 +5,12 @@ class ProductDigitalProvider(models.Model):
     _inherit = 'product.digital.provider'
 
     type = fields.Selection(selection_add=[('kmsp_store', 'KMSP Store')], ondelete={'kmsp_store': 'set default'})
-    api_key = fields.Char(string='API Key')
+    kms_store_api_key = fields.Char(string='KMSP Store API Key')
 
     def _kmsp_store_sync_products(self):
         ProductTemplate = self.env['product.template']
         for record in self:
-            endpoint = "https://golang-openapi-packagelist-xltembakservice.kmsp-store.com/v1?api_key=586e4aeb-0202-48fc-96f4-06f57c650345"
-            # endpoint = f"https://golang-openapi-packagelist-xltembakservice.kmsp-store.com/v1?api_key={record.api_key}"
+            endpoint = "https://golang-openapi-packagelist-xltembakservice.kmsp-store.com/v1?api_key=%s" % record.kms_store_api_key
             response = requests.get(endpoint)
             if response.status_code != 200:
                 response.raise_for_status()

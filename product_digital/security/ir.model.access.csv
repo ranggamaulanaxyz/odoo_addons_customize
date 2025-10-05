@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_product_digital_provider,access.product.digital.provider,model_product_digital_provider,base.group_user,1,1,0,1
+access_product_digital_token,access.product.digital.token,model_product_digital_token,base.group_user,1,1,0,1
+access_product_digital_transaction,access.product.digital.transaction,model_product_digital_transaction,base.group_user,1,1,0,1
