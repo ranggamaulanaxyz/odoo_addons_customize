@@ -3,36 +3,36 @@
     <function name="write" model="ir.module.category">
         <value eval="[ref('base.module_category_accounting_accounting')]"/>
         <value eval="{'name': 'Accounting'}"/>
-    </function>
+    </function>=
 
     <record id="account.group_account_invoice" model="res.groups">
         <field name="name">Invoicing</field>
-        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+        <field name="privilege_id" ref="account.res_groups_privilege_accounting"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
     <record id="account.group_account_readonly" model="res.groups">
         <field name="name">Readonly</field>
-        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+        <field name="privilege_id" ref="account.res_groups_privilege_accounting"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
     <record id="account.group_account_basic" model="res.groups">
         <field name="name">Invoicing &amp; Bank</field>
-        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+        <field name="privilege_id" ref="account.res_groups_privilege_accounting"/>
         <field name="implied_ids" eval="[(4, ref('account.group_account_invoice'))]"/>
     </record>
 
     <record id="account.group_account_user" model="res.groups">
         <field name="name">Bookkeeper</field>
-        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+        <field name="privilege_id" ref="account.res_groups_privilege_accounting"/>
         <field name="implied_ids" eval="[(4, ref('account.group_account_basic')), (4, ref('account.group_account_readonly'))]"/>
     </record>
 
     <record id="account.group_account_manager" model="res.groups">
         <field name="name">Administrator</field>
-        <field name="category_id" ref="base.module_category_accounting_accounting"/>
+        <field name="privilege_id" ref="account.res_groups_privilege_accounting"/>
         <field name="implied_ids" eval="[(3, ref('account.group_account_invoice')), (4, ref('account.group_account_user')), (4, ref('account.group_account_basic'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 </odoo>
