@@ -4,7 +4,7 @@
         <record id="product_digital_provider_kmsp_store" model="product.digital.provider">
             <field name="name">KMSP Store</field>
             <field name="type">kmsp_store</field>
-            <field name="active">True</field>
+            <field name="active" eval="False" />
         </record>
     </data>
 </odoo>

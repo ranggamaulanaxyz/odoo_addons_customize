@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.auth.jwt</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40" />
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='users_setting_container']" position="inside">
+                <setting id="auth_jwt_setting">
+                    <div class="content-group mt16">
+                        <label for="jwt_refresh_token_duration" class="o_light_label mr8"/>
+                        <field name="jwt_access_token_duration" readonly="False" />
+                    </div>
+                    <div class="content-group">
+                        <label for="jwt_refresh_token_duration" class="o_light_label mr8"/>
+                        <field name="jwt_refresh_token_duration" readonly="False" />
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
