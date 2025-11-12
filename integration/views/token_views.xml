@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_jwt_refresh_token" model="ir.actions.act_window">
+        <field name="name">Refresh Tokens</field>
+        <field name="res_model">res.users.jwt.refresh</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="menu_integration_authentication"
+              name="Authentication"
+              parent="menu_integration_root"
+              sequence="20"/>
+
+    <menuitem id="menu_integration_refresh_token"
+              name="Refresh Tokens"
+              parent="menu_integration_authentication"
+              action="action_jwt_refresh_token"
+              sequence="30"/>
+
+    <!-- List (Tree) View -->
+    <record id="view_jwt_refresh_token_tree" model="ir.ui.view">
+        <field name="name">res.users.jwt.refresh.tree</field>
+        <field name="model">res.users.jwt.refresh</field>
+        <field name="arch" type="xml">
+            <tree string="Refresh Tokens">
+                <field name="hash_token_id"/>
+                <field name="revoked"/>
+                <field name="user_id"/>
+                <field name="integration_application_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_jwt_refresh_token_form" model="ir.ui.view">
+        <field name="name">res.users.jwt.refresh.form</field>
+        <field name="model">res.users.jwt.refresh</field>
+        <field name="arch" type="xml">
+            <form string="Refresh Token">
+                <sheet>
+                    <group>
+                        <field name="hash_token_id"/>
+                        <field name="revoked"/>
+                        <field name="user_id"/>
+                        <field name="integration_application_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_jwt_refresh_token_search" model="ir.ui.view">
+        <field name="name">res.users.jwt.refresh.search</field>
+        <field name="model">res.users.jwt.refresh</field>
+        <field name="arch" type="xml">
+            <search string="Search Refresh Tokens">
+                <field name="hash_token_id"/>
+                <field name="user_id"/>
+                <field name="integration_application_id"/>
+                <filter string="Revoked" domain="[('revoked','=',True)]"/>
+                <filter string="Active" domain="[('revoked','=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>
