@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Group: Integration User -->
+    <record id="group_integration_user" model="res.groups">
+        <field name="name">Integration User</field>
+        <field name="category_id" ref="base.module_category_hidden"/> 
+        <field name="comment">Standard user for Integration module</field>
+    </record>
+
+    <!-- Group: Integration Manager -->
+    <record id="group_integration_manager" model="res.groups">
+        <field name="name">Integration Manager</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="comment">Manager with elevated rights for Integration module</field>
+        <!-- implied_ids: Manager inherits User rights -->
+        <field name="implied_ids" eval="[(4, ref('group_integration_user'))]"/>
+    </record>
+</odoo>

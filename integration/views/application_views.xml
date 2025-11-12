@@ -1,4 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-      
+    <!-- Action & Menu -->
+    <record id="action_integration_application" model="ir.actions.act_window">
+        <field name="name">Applications</field>
+        <field name="res_model">integration.application</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_integration_application_root"
+              name="Integration"
+              sequence="10"/>
+
+    <menuitem id="menu_integration_application"
+              name="Applications"
+              parent="menu_integration_application_root"
+              action="action_integration_application"
+              sequence="20"/>
+
+    <!-- List (Tree) View -->
+    <record id="view_integration_application_tree" model="ir.ui.view">
+        <field name="name">integration.application.tree</field>
+        <field name="model">integration.application</field>
+        <field name="arch" type="xml">
+            <tree string="Applications">
+                <field name="name"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_integration_application_form" model="ir.ui.view">
+        <field name="name">integration.application.form</field>
+        <field name="model">integration.application</field>
+        <field name="arch" type="xml">
+            <form string="Application">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_integration_application_search" model="ir.ui.view">
+        <field name="name">integration.application.search</field>
+        <field name="model">integration.application</field>
+        <field name="arch" type="xml">
+            <search string="Search Applications">
+                <field name="name"/>
+                <field name="company_id"/>
+                <filter string="My Company" domain="[('company_id','=',uid)]"/>
+            </search>
+        </field>
+    </record>
 </odoo>

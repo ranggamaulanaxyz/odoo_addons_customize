@@ -12,7 +12,13 @@ Key capabilities include endpoint configuration, API key and JWT token managemen
     'license': "Other proprietary",
     'category': "Administration/Administration",
     'depends': ['base', 'web', 'auth_jwt'],
-    'data': [],
+    'data': [
+        'security/integration_security.xml',
+        'security/integration_rules.xml',
+        'security/ir.model.access.csv',
+
+        'views/application_views.xml',
+    ],
     'demo': [],
     'auto_install': False,
     'application': True,

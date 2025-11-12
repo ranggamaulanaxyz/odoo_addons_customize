@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_integration_application_user,integration.application user,model_integration_application,group_integration_user,1,0,0,0
+access_integration_application_manager,integration.application manager,model_integration_application,group_integration_manager,1,1,1,1
+access_integration_parameter_user,integration.application.parameter user,model_integration_application_parameter,group_integration_user,1,0,0,0
+access_integration_parameter_manager,integration.application.parameter manager,model_integration_application_parameter,group_integration_manager,1,1,1,1
