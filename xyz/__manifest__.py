@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of RMXYZ. See LICENSE file for full copyright and licensing details.
 {
-    'name': 'Base (RMXYZ)',
+    'name': 'Base (XYZ)',
     'version': '0.1',
     'author': 'Rangga Maulana',
     'summary': 'Customization base module',

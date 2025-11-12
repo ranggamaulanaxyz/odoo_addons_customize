@@ -2,13 +2,13 @@
 # Part of RMXYZ. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Accounting (RMXYZ)',
+    'name': 'Accounting (XYZ)',
     'category': 'Accounting/Accounting',
     'version': '1.0',
     'author': 'Rangga Maulana',
     'description': """
 Accounting Module
-========================
+========================x
 
 This module provides the accounting feature.
 """,
