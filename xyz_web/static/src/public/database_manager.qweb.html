@@ -1,7 +1,8 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Odoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database Manager</title>
     <link rel="shortcut icon" href="/web/static/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/web/static/src/libs/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css" />
@@ -30,7 +31,7 @@
         <!-- Database List -->
         <div class="row">
             <div class="col-lg-6 offset-lg-3 o_database_list">
-                <img src="/web/static/img/logo2.png" class="img-fluid d-block mx-auto"/>
+                <h1 class="text-center display-4">DATABASE MANAGER</h1>
                 <t t-if="not list_db">
                     <div class="alert alert-danger text-center">The database manager has been disabled by the administrator</div>
                 </t>
@@ -47,15 +48,15 @@
                     <div class="list-group">
 
                         <t t-foreach="databases" t-as="db">
-                            <div class="list-group-item d-flex align-items-center">
-                                <a t-attf-href="/web?db={{ db }}" class="d-block flex-grow-1">
+                            <div class="list-group-item d-flex flex-column flex-md-row align-items-start align-items-md-center">
+                                <a t-attf-href="/web?db={{ db }}" class="d-block flex-grow-1 mb-2 mb-md-0">
                                     <t t-if="db in incompatible_databases">
                                         <i class="icon fa fa-warning float-end text-warning" title="This database may not be compatible"></i>
                                     </t>
                                     <t t-out="db" />
                                 </a>
                                 <t t-if="manage">
-                                    <div class="btn-group btn-group-sm float-end">
+                                    <div class="btn-group btn-group-sm float-md-end">
                                         <button type="button" t-att-data-db="db" data-bs-target=".o_database_backup" class="o_database_action btn btn-primary">
                                             <i class="fa fa-floppy-o fa-fw"></i> Backup
                                         </button>

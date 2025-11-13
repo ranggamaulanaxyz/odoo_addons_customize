@@ -8,6 +8,8 @@ class CustomizeHome(Home):
     def index(self, s_action=None, db=None, **kw):
         if request.db and request.session.uid and not is_user_internal(request.session.uid):
             return request.redirect_query('/web/login_successful', query=request.params)
-        config_parameter = request.env['ir.config_parameter']
-        sorturl = config_parameter.sudo().get_param("web.base.sorturl", "odoo")
-        return request.redirect_query('/' + sorturl, query=request.params)
+        if request.env:
+            config_parameter = request.env['ir.config_parameter']
+            sorturl = config_parameter.sudo().get_param("web.base.sorturl", "odoo")
+            return request.redirect_query('/' + sorturl, query=request.params)
+        return super(CustomizeHome, self).index(s_action=s_action, db=db, **kw)

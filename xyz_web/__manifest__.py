@@ -23,6 +23,7 @@ This module provides the customize core of the Odoo Web Client.
         ],
         "web.assets_backend": [
             ("replace", "web/static/src/webclient/navbar/navbar.variables.scss", "xyz_web/static/src/webclient/navbar/navbar.variables.scss"),
+            "xyz_web/static/src/scss/xyz_web.scss",
             "xyz_web/static/src/webclient/navbar/navbar.scss",
             "xyz_web/static/src/webclient/navbar/navbar.xml",
             "xyz_web/static/src/views/form/form.variables.scss",
@@ -30,6 +31,8 @@ This module provides the customize core of the Odoo Web Client.
             "xyz_web/static/src/webclient/user_menu/user_menu_items.js",
             "xyz_web/static/src/views/form/reload_form_controller.js",
             "xyz_web/static/src/webclient/switch_company_menu/switch_company_menu.xml",
+            "xyz_web/static/src/webclient/search/search_systray.js",
+            "xyz_web/static/src/webclient/search/search_systray.xml",
         ],
     },
     "license": "LGPL-3",

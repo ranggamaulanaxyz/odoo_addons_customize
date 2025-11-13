@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-<t t-name="web_customize.UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension">
+<t t-name="xyz_web.UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension">
     <xpath expr="//div[hasclass('o_user_menu')]" position="attributes">
         <attribute name="class">o_user_menu d-none d-md-flex pe-0 bg-inherit</attribute>
     </xpath>

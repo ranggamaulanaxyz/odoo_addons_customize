@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="xyz_web.SearchSystray" owl="1">
+        <button type="button border-none" class="o_systray_button" t-att-title="state.title" t-on-click="openSearchPalette">
+            <i class="me-2 fa fa-lg fa-search" t-att-class="icon" />
+        </button>
+    </t>
+</templates>
