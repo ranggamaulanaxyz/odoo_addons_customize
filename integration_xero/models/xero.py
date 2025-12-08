@@ -1,0 +1,1 @@
+XERO_AUTH_URL = "https://login.xero.com/identity/connect/authorize"

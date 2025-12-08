@@ -34,7 +34,7 @@ Benefits
 This module is ideal for organizations that use Odoo operationally while relying
 on Xero for statutory accounting or external financial reporting.
 """,
-    'depends': ['xyz', 'xyz_account', 'bus'],
+    'depends': ['xyz', 'xyz_account', 'bus', 'integration'],
     'auto_install': False,
     'installable': True,
     'application': False,

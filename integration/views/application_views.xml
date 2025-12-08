@@ -4,7 +4,7 @@
     <record id="action_integration_application" model="ir.actions.act_window">
         <field name="name">Applications</field>
         <field name="res_model">integration.application</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <menuitem id="menu_integration_application_root"
@@ -18,14 +18,14 @@
               sequence="20"/>
 
     <!-- List (Tree) View -->
-    <record id="view_integration_application_tree" model="ir.ui.view">
-        <field name="name">integration.application.tree</field>
+    <record id="view_integration_application_list" model="ir.ui.view">
+        <field name="name">integration.application.list</field>
         <field name="model">integration.application</field>
         <field name="arch" type="xml">
-            <tree string="Applications">
+            <list string="Applications">
                 <field name="name"/>
                 <field name="company_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -53,7 +53,7 @@
             <search string="Search Applications">
                 <field name="name"/>
                 <field name="company_id"/>
-                <filter string="My Company" domain="[('company_id','=',uid)]"/>
+                <filter name="my_company" string="My Company" domain="[('company_id','=',uid)]"/>
             </search>
         </field>
     </record>

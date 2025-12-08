@@ -11,16 +11,4 @@
         <field name="perm_create" eval="0"/>
         <field name="perm_unlink" eval="0"/>
     </record>
-
-    <!-- Record Rule: Integration Application Parameter -->
-    <record id="rule_integration_parameter_user" model="ir.rule">
-        <field name="name">Integration Parameter: User Company Only</field>
-        <field name="model_id" ref="model_integration_application_parameter"/>
-        <field name="groups" eval="[(4, ref('group_integration_user'))]"/>
-        <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
-        <field name="perm_read" eval="1"/>
-        <field name="perm_write" eval="0"/>
-        <field name="perm_create" eval="0"/>
-        <field name="perm_unlink" eval="0"/>
-    </record>
 </odoo>

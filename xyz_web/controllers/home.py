@@ -12,4 +12,12 @@ class CustomizeHome(Home):
             config_parameter = request.env['ir.config_parameter']
             sorturl = config_parameter.sudo().get_param("web.base.sorturl", "odoo")
             return request.redirect_query('/' + sorturl, query=request.params)
-        return super(CustomizeHome, self).index(s_action=s_action, db=db, **kw)
+        return request.redirect_query('/web', query=request.params)
+    
+    def _web_client_readonly(self, rule, args):
+        return False
+
+    # ideally, this route should be `auth="user"` but that don't work in non-monodb mode.
+    @http.route(['/web', '/odoo', '/odoo/<path:subpath>', '/app', '/app/<path:subpath>', '/scoped_app/<path:subpath>'], type='http', auth="none", readonly=_web_client_readonly)
+    def web_client(self, s_action=None, **kw):
+        return super(CustomizeHome, self).web_client(s_action=s_action, **kw)
