@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_users_preferences_form_inherit" model="ir.ui.view">
+        <field name="name">view.res.users.prefrences.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Connect" name="connect">
+                    <div name="auth" class="d-flex">
+                        <div class="col-7 col-sm-6 col-lg-3 d-flex flex-column">
+                            <span class="o_form_label">
+                                Xero
+                            </span>
+                            <span class="text-muted">
+                                Connect your account to xero
+                            </span>
+                        </div>
+                        <button name="preference_xero_connect" type="object"
+                            string="Connect"
+                            class="btn btn-secondary h-100 my-auto" />
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
