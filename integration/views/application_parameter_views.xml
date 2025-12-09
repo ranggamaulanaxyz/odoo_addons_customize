@@ -19,10 +19,11 @@
         <field name="name">integration.application.parameter.list</field>
         <field name="model">integration.application.parameter</field>
         <field name="arch" type="xml">
-            <list string="Parameters" editable="bottom">
-                <field name="integration_application_id" />
+            <list string="Parameters">
                 <field name="key" />
+                <field name="type" />
                 <field name="value" />
+                <field name="integration_application_id" />
             </list>
         </field>
     </record>
@@ -40,7 +41,11 @@
                             <field name="key" />
                         </group>
                         <group>
-                            <field name="value" />
+                            <field name="type" />
+                            <field name="value_char" invisible="type != 'char'" />
+                            <field name="value_text" invisible="type != 'text'" />
+                            <field name="value_integer" invisible="type != 'integer'" />
+                            <field name="value_float" invisible="type != 'float'" />
                         </group>
                     </group>
                 </sheet>
