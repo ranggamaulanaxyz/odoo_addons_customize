@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 from odoo.addons.xyz.tools.misc import decrypt_bytes
-from odoo.addons.models.xero import XERO_AUTH_URL
+from odoo.addons.integration_xero.models.xero import XERO_AUTH_URL
 from urllib.parse import urlencode
 
 class ResUsers(models.Model):
