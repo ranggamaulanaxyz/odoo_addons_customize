@@ -8,14 +8,14 @@
     </record>
 
     <menuitem id="menu_integration_application_root"
-              name="Integration"
-              sequence="10"/>
+        name="Integration"
+        sequence="10" />
 
     <menuitem id="menu_integration_application"
-              name="Applications"
-              parent="menu_integration_application_root"
-              action="action_integration_application"
-              sequence="20"/>
+        name="Applications"
+        parent="menu_integration_application_root"
+        action="action_integration_application"
+        sequence="20" />
 
     <!-- List (Tree) View -->
     <record id="view_integration_application_list" model="ir.ui.view">
@@ -23,8 +23,8 @@
         <field name="model">integration.application</field>
         <field name="arch" type="xml">
             <list string="Applications">
-                <field name="name"/>
-                <field name="company_id"/>
+                <field name="name" />
+                <field name="company_id" />
             </list>
         </field>
     </record>
@@ -35,10 +35,16 @@
         <field name="model">integration.application</field>
         <field name="arch" type="xml">
             <form string="Application">
+                <div name="button_box">
+                    <button string="Parameters" name="open_parameters" type="object" icon="fa-list">
+                        <field name="parameter_count" widget="statinfo" string="Parameters" />
+                        <field name="parameter_ids" invisible="1" />
+                    </button>
+                </div>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="company_id"/>
+                        <field name="name" />
+                        <field name="company_id" />
                     </group>
                 </sheet>
             </form>
@@ -51,9 +57,9 @@
         <field name="model">integration.application</field>
         <field name="arch" type="xml">
             <search string="Search Applications">
-                <field name="name"/>
-                <field name="company_id"/>
-                <filter name="my_company" string="My Company" domain="[('company_id','=',uid)]"/>
+                <field name="name" />
+                <field name="company_id" />
+                <filter name="my_company" string="My Company" domain="[('company_id','=',uid)]" />
             </search>
         </field>
     </record>

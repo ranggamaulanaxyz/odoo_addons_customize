@@ -18,6 +18,7 @@ Key capabilities include endpoint configuration, API key and JWT token managemen
         'security/ir.model.access.csv',
 
         'views/application_views.xml',
+        'views/application_parameter_views.xml',
         'views/token_views.xml',
     ],
     'demo': [],

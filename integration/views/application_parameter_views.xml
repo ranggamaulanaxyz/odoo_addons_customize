@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_integration_application_parameter" model="ir.actions.act_window">
+        <field name="name">Application Parameters</field>
+        <field name="res_model">integration.application.parameter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_integration_application_parameter"
+        name="Parameters"
+        parent="menu_integration_application_root"
+        action="action_integration_application_parameter"
+        sequence="30" />
+
+    <!-- List View -->
+    <record id="view_integration_application_parameter_list" model="ir.ui.view">
+        <field name="name">integration.application.parameter.list</field>
+        <field name="model">integration.application.parameter</field>
+        <field name="arch" type="xml">
+            <list string="Parameters" editable="bottom">
+                <field name="integration_application_id" />
+                <field name="key" />
+                <field name="value" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_integration_application_parameter_form" model="ir.ui.view">
+        <field name="name">integration.application.parameter.form</field>
+        <field name="model">integration.application.parameter</field>
+        <field name="arch" type="xml">
+            <form string="Parameter">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="integration_application_id" />
+                            <field name="key" />
+                        </group>
+                        <group>
+                            <field name="value" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_integration_application_parameter_search" model="ir.ui.view">
+        <field name="name">integration.application.parameter.search</field>
+        <field name="model">integration.application.parameter</field>
+        <field name="arch" type="xml">
+            <search string="Search Parameters">
+                <field name="key" />
+                <field name="integration_application_id" />
+                <group>
+                    <filter name="group_by_application" string="Application"
+                        context="{'group_by': 'integration_application_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
