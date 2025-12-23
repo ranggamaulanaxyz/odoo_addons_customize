@@ -10,6 +10,7 @@ DEFAULT_JWT_SECRET_KEY = 'Hk5U4qM6xWgb_YzmlfJYq7hF8nGZ1E0qzDbN6oL0x5Q'
 class JWTRefreshToken(models.Model):
     _name = 'res.users.jwt.refresh'
     _description = 'JWT Refresh Token'
+    _rec_name = 'hash_token_id'
 
     hash_token_id = fields.Char(required=True)
     revoked = fields.Boolean(indexed=True)
