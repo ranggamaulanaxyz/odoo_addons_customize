@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Action -->
-    <record id="action_integration_application_parameter" model="ir.actions.act_window">
-        <field name="name">Application Parameters</field>
-        <field name="res_model">integration.application.parameter</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <!-- Menu -->
-    <menuitem id="menu_integration_application_parameter"
-        name="Parameters"
-        parent="menu_integration_application_root"
-        action="action_integration_application_parameter"
-        sequence="30" />
-
     <!-- List View -->
     <record id="view_integration_application_parameter_list" model="ir.ui.view">
         <field name="name">integration.application.parameter.list</field>
@@ -68,4 +54,19 @@
             </search>
         </field>
     </record>
+
+
+    <!-- Action -->
+    <record id="action_integration_application_parameter" model="ir.actions.act_window">
+        <field name="name">Application Parameters</field>
+        <field name="res_model">integration.application.parameter</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_integration_application_parameter"
+        name="Parameters"
+        parent="menu_integration_application"
+        action="action_integration_application_parameter"
+        sequence="30" />
 </odoo>

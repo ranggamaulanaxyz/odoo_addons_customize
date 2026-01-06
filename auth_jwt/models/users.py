@@ -61,7 +61,7 @@ class ResUsers(models.Model):
             _logger.warning(f"Token is invalid: {e}")
         return payload
 
-    def _jwt_generate_access_token(self):
+    def _jwt_generate_access_token(self, new_payload={}):
         self.ensure_one()
         company = self.company_id
         exp = self._jwt_expiration_time(company.jwt_access_token_duration)
@@ -70,10 +70,13 @@ class ResUsers(models.Model):
             'exp': exp,
             'type': 'access'
         }
+        if new_payload:
+            new_payload = {k: v for k, v in new_payload.items() if k not in payload}
+            payload.update(new_payload)
         token = self._jwt_generate_token(payload)
         return token
     
-    def _jwt_generate_refresh_token(self, token_id=None):
+    def _jwt_generate_refresh_token(self, token_id=None, new_payload={}):
         company = self.company_id
         exp = self._jwt_expiration_time(company.jwt_refresh_token_duration)
         new_token_id = str(uuid.uuid4())
@@ -83,6 +86,9 @@ class ResUsers(models.Model):
             'jti': new_token_id,
             'type': 'refresh'
         }
+        if new_payload:
+            new_payload = {k: v for k, v in new_payload.items() if k not in payload}
+            payload.update(new_payload)
         token = self._jwt_generate_token(payload)
         RefreshToken = self.env['res.users.jwt.refresh']
         hash_new_token_id = RefreshToken._hash_token_id(new_token_id)

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Article Form View -->
+    <record id="view_integration_blog_article_form" model="ir.ui.view">
+        <field name="name">intgration.blog.article.form</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <form string="Article">
+                <header>
+                    <button name="publish" string="Publish" type="object"
+                        class="oe_highlight" invisible="is_published" />
+                    <field name="is_published" invisible="1" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title" class="oe_edit_only" />
+                        <h1>
+                            <field name="title" placeholder="Article Title..." />
+                        </h1>
+
+                        <group>
+                            <field name="excerpt" placeholder="Short summary or preview..." />
+                        </group>
+                    </div>
+                    <notebook>
+                        <page string="Content">
+                            <field name="content" widget="html" />
+                        </page>
+                        <page string="Options">
+                            <group>
+                                <group>
+
+                                    <field name="slug" />
+                                    <field name="category_ids" widget="many2many_tags" />
+                                    <field name="tag_ids" widget="many2many_tags"
+                                        options="{'color_field': 'color'}" />
+                                    <field name="author_user_id" />
+                                </group>
+                                <group>
+                                    <field name="integration_application_id" />
+                                    <field name="publish_date" readonly="1" />
+                                    <field name="create_date" readonly="1" />
+                                    <field name="write_date" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+
+    <!-- Article List View -->
+    <record id="view_integration_blog_article_tree" model="ir.ui.view">
+        <field name="name">intgration.blog.article.tree</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <list string="Articles" decoration-success="is_published==True"
+                decoration-muted="is_published==False">
+                <field name="title" />
+                <field name="slug" />
+                <field name="integration_application_id" />
+                <field name="author_user_id" />
+                <field name="category_ids" widget="many2many_tags" />
+                <field name="is_published" />
+                <field name="publish_date" />
+                <field name="view_count" />
+                <field name="comment_count" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Article Search View -->
+    <record id="view_integration_blog_article_search" model="ir.ui.view">
+        <field name="name">intgration.blog.article.search</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="title"
+                    filter_domain="['|', '|', ('title', 'ilike', self), ('content', 'ilike', self), ('excerpt', 'ilike', self)]" />
+                <field name="slug" />
+                <field name="integration_application_id" />
+                <field name="author_user_id" />
+                <field name="category_ids" />
+                <field name="tag_ids" />
+
+                <filter string="Published" name="published" domain="[('is_published', '=', True)]" />
+                <filter string="Unpublished" name="unpublished"
+                    domain="[('is_published', '=', False)]" />
+                <separator />
+                <filter string="My Articles" name="my_articles"
+                    domain="[('author_user_id', '=', uid)]" />
+                <separator />
+                <filter string="Publish Date" name="filter_publish_date" date="publish_date" />
+
+                <group>
+                    <filter string="Application" name="group_application"
+                        context="{'group_by': 'integration_application_id'}" />
+                    <filter string="Author" name="group_author"
+                        context="{'group_by': 'author_user_id'}" />
+                    <filter string="Category" name="group_category"
+                        context="{'group_by': 'category_ids'}" />
+                    <filter string="Published Status" name="group_published"
+                        context="{'group_by': 'is_published'}" />
+                    <filter string="Publish Date" name="group_publish_date"
+                        context="{'group_by': 'publish_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Article Kanban View (Mobile-Friendly) -->
+    <record id="view_integration_blog_article_kanban" model="ir.ui.view">
+        <field name="name">intgration.blog.article.kanban</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="title" />
+                <field name="slug" />
+                <field name="excerpt" />
+                <field name="author_user_id" />
+                <field name="publish_date" />
+                <field name="is_published" />
+                <field name="view_count" />
+                <field name="comment_count" />
+                <field name="integration_application_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary">
+                                        <strong>
+                                            <field name="title" />
+                                        </strong>
+                                    </div>
+                                    <div class="o_secondary">
+                                        <i class="fa fa-link" />
+                                        <field name="slug" />
+                                    </div>
+                                </div>
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle o-no-caret btn" role="button"
+                                        data-toggle="dropdown" href="#" aria-label="Dropdown menu"
+                                        title="Dropdown menu">
+                                        <span class="fa fa-ellipsis-v" />
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                        <a role="menuitem" type="delete" class="dropdown-item">
+                                            Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_content">
+                                <div class="o_kanban_card_body">
+                                    <field name="excerpt" widget="text" />
+                                </div>
+                            </div>
+                            <div class="o_kanban_card_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span class="badge badge-pill"
+                                            t-if="record.is_published.raw_value"
+                                            style="background-color: #28a745;">
+                                            Published
+                                        </span>
+                                        <span class="badge badge-pill" t-else=""
+                                            style="background-color: #6c757d;">
+                                            Draft
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <img
+                                            t-att-src="kanban_image('res.users', 'image_128', record.author_user_id.raw_value)"
+                                            t-att-title="record.author_user_id.value"
+                                            t-att-alt="record.author_user_id.value"
+                                            class="oe_kanban_avatar o_image_24_cover" />
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom" style="margin-top: 5px;">
+                                    <div class="oe_kanban_bottom_left">
+                                        <i class="fa fa-eye" title="Views" />
+                                        <field name="view_count" />
+                                        <i class="fa fa-comment" style="margin-left: 10px;"
+                                            title="Comments" />
+                                        <field name="comment_count" />
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="publish_date" widget="date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Article Pivot View -->
+    <record id="view_integration_blog_article_pivot" model="ir.ui.view">
+        <field name="name">intgration.blog.article.pivot</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <pivot string="Article Analytics">
+                <field name="integration_application_id" type="row" />
+                <field name="category_ids" type="row" />
+                <field name="view_count" type="measure" />
+                <field name="comment_count" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Article Calendar View -->
+    <record id="view_integration_blog_article_calendar" model="ir.ui.view">
+        <field name="name">intgration.blog.article.calendar</field>
+        <field name="model">intgration.blog.article</field>
+        <field name="arch" type="xml">
+            <calendar string="Articles Calendar" date_start="publish_date" color="is_published"
+                mode="month">
+                <field name="title" />
+                <field name="author_user_id" />
+                <field name="is_published" />
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Article Action -->
+    <record id="action_integration_blog_article" model="ir.actions.act_window">
+        <field name="name">Articles</field>
+        <field name="res_model">intgration.blog.article</field>
+        <field name="view_mode">list,kanban,form,calendar,pivot</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first article
+            </p>
+            <p>
+                Articles are blog posts that can be published on your website.
+                You can categorize them, add tags, and track their performance.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_integration_blog_root"
+        name="Blog"
+        parent="integration.menu_integration_application_root"
+        groups="integration.group_integration_user,integration.group_integration_manager"
+        sequence="20" />
+
+    <menuitem id="menu_integration_blog_article"
+        name="Articles"
+        parent="menu_integration_blog_root"
+        action="action_integration_blog_article"
+        groups="integration.group_integration_user,integration.group_integration_manager"
+        sequence="10" />
+
+</odoo>
