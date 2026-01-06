@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_bank_statement_line_form" model="ir.ui.view">
+        <field name="name">account.bank.statement.line.form</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <form string="Bank Statement Lines">
+                <header>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="statement_id" />
+                            <field name="date" />
+                            <field name="payment_ref" />
+                            <field name="partner_id" />
+                        </group>
+                        <group>
+                            <field name="amount" />
+                            <field name="foreign_currency_id" />
+                            <field name="journal_id" />
+                            <field name="company_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payments">
+                            <field name="payment_ids" />
+                        </page>
+                        <page string="Other Info">
+                            <group>
+                                <group>
+                                    <field name="account_number" />
+                                    <field name="transaction_type" />
+                                    <field name="internal_index" />
+                                </group>
+                                <group>
+                                    <field name="currency_id" />
+                                    <field name="amount_currency" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

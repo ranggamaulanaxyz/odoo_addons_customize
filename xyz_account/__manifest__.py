@@ -18,6 +18,8 @@ This module provides the accounting feature.
     'application': False,
     'data': [
         'security/account_security.xml',
+        'views/bank_statement_views.xml',
+        'views/bank_statement_line_views.xml',
         'views/res_config_settings_views.xml',
         'views/menu_item_views.xml',
     ],

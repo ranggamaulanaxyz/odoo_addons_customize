@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_bank_statement_form" model="ir.ui.view">
+        <field name="name">account.bank.statement.form</field>
+        <field name="model">account.bank.statement</field>
+        <field name="arch" type="xml">
+            <form string="Bank Statement">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="date" />
+                        </group>
+                        <group>
+                            <field name="balance_start" />
+                            <field name="balance_end_real" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Statement Lines">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="date" />
+                                    <field name="payment_ref" required="1" />
+                                    <field name="journal_id" column_invisible="1" />
+                                    <field name="account_number" optional="hide" />
+                                    <field name="foreign_currency_id" optional="hide" />
+                                    <field name="amount_currency" optional="hide" />
+                                    <field name="amount" />
+                                </list>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="date" />
+                                                <field name="payment_ref" />
+                                                <field name="partner_id" />
+                                            </group>
+                                            <group>
+                                                <field name="amount" />
+                                                <field name="foreign_currency_id" />
+                                                <field name="journal_id" />
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="o_attachment_preview" />
+                <chatter />
+            </form>
+        </field>
+    </record>
+</odoo>
