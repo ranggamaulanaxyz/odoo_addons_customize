@@ -42,3 +42,29 @@ class BankStatement(models.Model):
                 ("statement_id", "=", self.id),
             ],
         }
+
+    def action_open_bank_reconcile_widget(self):
+        """
+        Open the bank reconciliation widget for this statement's journal.
+        """
+        self.ensure_one()
+        return self.journal_id.action_open_bank_reconciliation()
+
+    def action_open_journal_invalid_statements(self):
+        """
+        Open a list view showing invalid statements for this statement's journal.
+        """
+        self.ensure_one()
+        return {
+            'name': self.env._('Invalid Statements'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.bank.statement',
+            'view_mode': 'list,form',
+            'domain': [
+                ('journal_id', '=', self.journal_id.id),
+                '|',
+                ('is_valid', '=', False),
+                ('is_complete', '=', False),
+            ],
+            'context': {'search_default_journal_id': self.journal_id.id},
+        }
